@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Selig Kontakt</title>
+		<meta name="author" content="Tatjana Shigailow, Mauricio Hess">
+		<meta name="description" content="Selig Berlin Restaurant">
+		<meta name="keywords" content="Selig, Berlin, Restaurant, Kontakt">
+		<meta name="date" content="2018-06-10 22:07:37">
+		<!--CSS-->
+		 <style> 
+	      	#karte {
+		        height: 400px;
+		        width: 400px;
+	       	}
+    	</style>
+
+	</head>
+
+	<body>
+		<!-- Menü Leiste -->
+		<ul>
+			<li><a href = "grundgeruest.html"> Startseite </a> </li>
+			<li><a href = "speisekarte.html"> Speisekarte </a> </li>
+			<li><a href = "reservierung.html"> Reservierung </a> </li>
+			<li><a href = "team.html"> Team </a> </li>
+			<li><a href = "kontakt.html"> Kontakt </a></li>
+			<li><a href = "login.html"> <img src="worker.png"></a>
+		</ul>
+
+
+		<!--Google Maps Karte -->
+		<div id = "karte"> </div>
+		<script>
+     		function initKarte() {
+	        	var point = {lat: 52.5109678, lng: 13.2926349};
+	        	var map = new google.maps.Map(document.getElementById('karte'), {
+	          	zoom: 15,
+	          	center: point
+	        	});
+		        var marker = new google.maps.Marker({
+		        position: point,
+		        map: map
+	        	});
+      		}
+    	</script>
+    	<script async defer
+	    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCunppvqQK3QDm6q2AChsBNIaez0xPAc9Y&callback=initKarte">
+	    </script>
+	    <div id = "kontaktdaten">
+	    	Selig Restaurant </br>
+	    	Kaiserdamm 6</br>
+			14057 Berlin</br>
+			030 91493669
+	    </div>
+
+
+	</body>
+
+</html>
