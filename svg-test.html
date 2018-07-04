@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Beschreibung der Seite</title>
+		<meta name="author" content="Patrick Erdelt">
+		<meta name="description" content="Ein Beschreibungstext für Suchdienste.">
+		<meta name="keywords" content="CSS, Beispiel, ">
+		<meta name="date" content="2013-03-07 08:49:37">
+		<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+	</head>
+	<body>
+
+<p>Die SVG wurde mit <a href="http://vectorpaint.yaks.co.nz/" target="_blank">Vectorpaint</a> erstellt. Bitte Tisch anklicken.
+	
+	
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="777" height="480" style="">                                    <title>my vector image</title>                                    <!-- Created with Vector Paint - http://www.vectorpaint.yaks.com/ https://chrome.google.com/webstore/detail/hnbpdiengicdefcjecjbnjnoifekhgdo -->                                    <rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="#FFFFFF" stroke="none"/>                                <g class="currentLayer" style=""><title>Layer 1</title><path fill="#aa00cc" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" d="M179,230.5 C179,214.75414364640883 202.94198895027625,202 232.5,202 C262.05801104972375,202 286,214.75414364640883 286,230.5 C286,246.24585635359117 262.05801104972375,259 232.5,259 C202.94198895027625,259 179,246.24585635359117 179,230.5 Z" id="svg_1"/><path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" d="M124,227 C124,222.58011049723757 128.6988950276243,219 134.5,219 C140.3011049723757,219 145,222.58011049723757 145,227 C145,231.41988950276243 140.3011049723757,235 134.5,235 C128.6988950276243,235 124,231.41988950276243 124,227 Z" id="svg_3"/><path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" d="M147,266 C147,261.58011049723757 152.146408839779,258 158.5,258 C164.853591160221,258 170,261.58011049723757 170,266 C170,270.41988950276243 164.853591160221,274 158.5,274 C152.146408839779,274 147,270.41988950276243 147,266 Z" id="svg_5"/><path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" d="M227,287.5 C227,282.80386740331494 232.146408839779,279 238.5,279 C244.853591160221,279 250,282.80386740331494 250,287.5 C250,292.19613259668506 244.853591160221,296 238.5,296 C232.146408839779,296 227,292.19613259668506 227,287.5 Z" id="svg_7"/><path fill="#4a90d6" fill-opacity="1" stroke="#222222" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" d="M302,260 C302,255.02762430939225 308.2651933701657,251 316,251 C323.7348066298343,251 330,255.02762430939225 330,260 C330,264.97237569060775 323.7348066298343,269 316,269 C308.2651933701657,269 302,264.97237569060775 302,260 Z" id="svg_9"/></g></svg>
+
+Ich reserviere Tisch <input type="text" name="tisch" id="tisch"/>
+
+		<script type="text/javascript">
+			// das wird ausgefuehrt, sobald die Seite im Browser fertig geladen ist (document-ready Event)
+			$(function() {
+				$('#svg_1').click(function(){
+					alert("Tisch 1 reservieren");
+					$('#tisch').val("1");
+				});
+			});
+		</script>
+	</body>
+</html>
