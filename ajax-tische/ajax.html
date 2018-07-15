@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Beschreibung der Seite</title>
+		<meta name="author" content="Patrick Erdelt">
+		<meta name="description" content="Ein Beschreibungstext für Suchdienste.">
+		<meta name="keywords" content="CSS, Beispiel, ">
+		<meta name="date" content="2013-03-07 08:49:37">
+		<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+	</head>
+	<body>
+
+
+		<script type="text/javascript">
+			// das wird ausgeführt, sobald die Seite im Browser fertig geladen ist (document-ready Event)
+			$(function() {
+				// das fragt beim server nach freien tischen für bestimmten tag
+				$.getJSON("freie-tische.php?tag=2018-01-01", function(data){
+				    $.each(data, function (index, value) {
+				        if(value)
+					        alert("Tisch "+(index)+": frei");
+					   	else
+					        alert("Tisch "+(index)+": besetzt");
+				    });
+				});
+			});
+	
+		</script>
+
+
+
+	</body>
+</html>
