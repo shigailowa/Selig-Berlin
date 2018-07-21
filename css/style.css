@@ -1,0 +1,199 @@
+/**@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #212;
+}
+
+.navbar {
+padding: .8rem; 
+}
+
+.navbar-nav li{
+  padding-right: 20 px;
+}
+
+.nav-link {
+    font-size:1.1em !important;
+}
+
+.carousel-inner img{
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-caption{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}*/
+/*roter Hintergrund #6b0504 */
+/*Schwarz #080f0f*/
+/* Gelb #ffc914*/
+.info{
+  background: #6b0504;
+}
+
+
+body{
+  font-family: 'Playfair Display', serif;
+
+
+}
+
+.primary-color{
+  color: #080f0f;
+}
+
+.secondary-color{
+  color: #ffc914;
+}
+
+.info h2{
+  word-spacing: 0.6rem;
+}
+
+.info a{
+  transition: color 2s ease-in-out;
+}
+.info a:hover{
+  color: #242424;
+}
+
+/*#######header#####*/
+#header{
+  min-height: calc(100vh - 94px);
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../Bilder/asian-food-boiled-eggs-container.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.height-90{
+    min-height: calc(100vh - 94px);
+}
+
+.banner h1{
+    border-top: 6px dotted;
+    border-bottom: 6px dotted;
+    animation: fromLeft;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fromLeft{
+  0%{
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(30px);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+
+a.main-btn {
+  color: #ffc914;
+  font-size: 2rem;
+  border: 2px solid;
+  transition: all 1s ease-in-out;
+}
+
+.main-btn:hover{
+  color: #242424;
+  border: 2px solid #c9c1ac;
+  background: #c9c1ac;
+}
+
+.food-btn {
+   animation: fromRight;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fromRight {
+  0%{
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(-30px);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.header-link {
+  display: inline-block;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  background: #c9c1ac;
+  border-radius: 10px;
+  transition: all 2s ease;
+  animation: fromBottom;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fromBottom{
+  0%{
+    transform: translateY(-10px);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(-10px);
+  }
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+
+  }
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+  
+
+
+
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+
+
