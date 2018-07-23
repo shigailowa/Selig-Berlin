@@ -1,0 +1,321 @@
+.info{
+  background: #6b0504;
+  
+}
+
+
+body{
+  font-family: 'Playfair Display', serif;
+ /* background: #161412*/
+  background: url(../Bilder/holz.jpg)center/cover fixed no-repeat;
+}
+
+.primary-color{
+  color: #080f0f;
+}
+
+.secondary-color{
+  color: #ffc914;
+}
+
+.info h2{
+  word-spacing: 0.6rem;
+}
+
+.info a{
+  transition: color 2s ease-in-out;
+}
+.info a:hover{
+  color: #242424;
+}
+
+.main-btn {
+  color: #ffc914;
+  font-size: 2rem; 
+  border: 2px solid;
+  transition: all 1s ease-in-out; 
+}
+.main-btn:hover{
+  color: #ffc914;
+  border: 2px solid #c9c1ac;
+  background: #c9c1ac;
+}
+
+.food-btn {
+   animation: fromRight;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    opacity: 1;
+    animation-fill-mode: forwards;
+}
+.header-link {
+  animation: fromBottom;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  background: #c9c1ac;
+  border-radius: 10px;
+  transition: all 2s ease;
+  
+}
+
+
+
+.item-container{
+  position: relative;
+  /* for the link*/
+  overflow: hidden;
+  background: linear-gradient(rgb(0,0,0),rgb(0,0,0));
+  transition: all 2s ease;
+}
+
+.item-img{
+    transition: all 2s ease;
+}
+
+.item-container:hover .item-img{
+    transform: scale(1.2);
+    opacity: 0.5;
+}
+
+.item-link{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #ffc914;
+  font-size: 2rem;
+  border-top: 3px solid #ffc914;
+  border-bottom: 3px solid #ffc914;
+  transition: all 2s ease;
+  opacity: 0;
+}
+
+.item-container:hover .item-link{
+  opacity: 1;
+}
+
+.item-link:hover{
+  color: #080f0f;
+  border: 3px solid #080f0f;
+  background: #080f0f;
+  color: #242424;
+}
+
+.item-container:hover{
+  outline: 10px solid #ffc914;
+  outline-offset: -0.8rem;
+}
+
+.special{
+  border: 3px solid #ffc914;
+  position: relative;
+}
+
+.special-text{
+  position: absolute;
+  top:0;
+  right: 10%;
+  /*background: #6b0504;*/
+  color: #ffc914;
+  padding: 0.0.4rem;
+}
+
+.about-pictures{
+  position: relative;
+}
+
+.about-image{
+  position: absolute;
+  width: 150px;
+  transition: all 2s ease;
+  opacity: 0.9;
+}
+
+.img-1{
+  left: 0%;
+  top: 0%;
+}
+
+.about-image:hover{
+  outline: 10px solid #ffc914;
+  outline-offset: 0.8rem;
+  transform: scale(1.3) rotate(20deg);
+  z-index: 30;
+  opacity: 1;
+
+}
+
+.about-pictures:hover .about-image:not(:hover){
+  opacity: 0.4;
+}
+
+.review-item{
+  background: rgba(255,255,255,0.7);
+  clip-path: polygon(5% 0,100% 0,90% 100%,0 100%);
+}
+
+.review-img{
+  width: 150px
+}
+
+.team-icons a{
+  color: #3b5998;
+  transition: all 2s ease-in-out;
+}
+
+.team-icons a:hover{
+  color: #242424;
+  transform: translateY(-5px);
+}
+
+.height-60{
+  min-height: 60vh;
+}
+
+#contact .card{
+  background: rgba(0,0,0,0.5);
+  transition: all 2s ease;
+
+}
+
+#contact .card:hover{
+  background: rgba(0,0,0,0.8);
+}
+
+#contact .card-header{
+  color:#ffc914;
+}
+
+#contact .input-group-text{
+  background: #ffc914;
+  border-color: #ffc914;
+  color:#242424;
+}
+
+#contact .card input{
+  color: #606060;
+}
+
+#contact .card input::placeholder{
+  color: #606060
+}
+
+.contact-btn{
+  color:#ffc914;
+  border-color: #ffc914
+  background: transparent;
+  transition: all 2s ease-in-out;
+
+}
+
+.contact-btn:hover {
+  background: #c9c1ac;
+  color: #ffc914;
+  border-color: #c9c1ac;
+}
+
+/*footor*/
+
+.scrollTop{
+  position: fixed;
+  bottom: 70px;
+  right: 10px;
+}
+
+.navbar{
+  background: #080f0f
+}
+
+.navbar-background {
+  padding: 5px 20px;
+}
+
+.navbar-brand {
+  color:#ffc914;
+  font-size: 30px;
+  transition: all 1s ease;
+}
+
+.navbar-brand:hover {
+  color: #242424;
+}
+#back-to-top{
+  background: #c9c1ac;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/*######menu#####*/
+#menu{
+ /*-- background:linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7))url(../)center/cover fixed no-repeat--*/
+}
+/*#######header#####*/
+#header{
+  min-height: calc(100vh - 94px);
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../Bilder/asian-food-boiled-eggs-container.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.height-90{
+    min-height: calc(100vh - 94px);
+}
+
+.banner h1{
+    border-top: 6px dotted;
+    border-bottom: 6px dotted;
+    animation: fromLeft;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+@keyframes fromLeft{
+  0%{
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(30px);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+@keyframes fromRight {
+  0%{
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(-30px);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes fromBottom{
+  0%{
+    transform: translateY(-10px);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(-10px);
+  }
+}
