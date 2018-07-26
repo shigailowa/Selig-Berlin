@@ -50,7 +50,29 @@ body{
 .secondary-color{
   color: #ffc914;
 }
+.header-link {
+  animation: fromBottom;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  background: #c9c1ac;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  
+}
 
+.grow{
+  font-size: 40px;
+}
+
+.embed-container{
+  position: center;
+  max-height: 800px;
+  max-width: 1200px;
+}
 .info h2{
   word-spacing: 0.6rem;
 }
@@ -60,6 +82,11 @@ body{
 }
 .info a:hover{
   color: #242424;
+}
+
+.midd{
+  position:relative; 
+  left:50%;
 }
 
 .main-btn {
@@ -77,22 +104,9 @@ body{
 .food-btn {
    animation: fromRight;
     animation-duration: 4s;
-    animation-delay: 2s;
-    opacity: 1;
+    animation-delay: 1s;
+    opacity: 0;
     animation-fill-mode: forwards;
-}
-.header-link {
-  animation: fromBottom;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  display: inline-block;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  background: #c9c1ac;
-  border-radius: 10px;
-  transition: all 2s ease;
-  
 }
 
 
@@ -153,7 +167,7 @@ body{
   top:0;
   right: 10%;
   /*background: #6b0504;*/
-  color: #6b0504
+  color: #ffc914;
   padding: 0.0.4rem;
 }
 
@@ -209,50 +223,6 @@ body{
   min-height: 60vh;
 }
 
-#contact .card{
-  background: rgba(0,0,0,0.5);
-  transition: all 2s ease;
-
-}
-
-#contact .card:hover{
-  background: rgba(0,0,0,0.8);
-}
-
-#contact .card-header{
-  color:#ffc914;
-}
-
-#contact .input-group-text{
-  background: #ffc914;
-  border-color: #ffc914;
-  color:#242424;
-}
-
-#contact .card input{
-  color: #606060;
-}
-
-#contact .card input::placeholder{
-  color: #606060
-}
-
-.contact-btn{
-  color:#ffc914;
-  border-color: #ffc914
-  background: transparent;
-  transition: all 2s ease-in-out;
-
-}
-
-.contact-btn:hover {
-  background: #c9c1ac;
-  color: #ffc914;
-  border-color: #c9c1ac;
-}
-
-/*footor*/
-
 .scrollTop{
   position: fixed;
   bottom: 70px;
@@ -260,7 +230,10 @@ body{
 }
 
 .navbar{
-  background: #080f0f
+  background: #6b0504;
+  padding: 20px 20px;
+  transition: all 1s ease;
+
 }
 
 .navbar-background {
@@ -268,7 +241,6 @@ body{
 }
 
 .navbar-brand {
-  color:#ffc914;
   font-size: 30px;
   transition: all 1s ease;
 }
@@ -276,6 +248,39 @@ body{
 .navbar-brand:hover {
   color: #242424;
 }
+
+.nav-link {
+  color: #ffc914;
+  text-decoration: none;
+  transition: all 2s ease;
+  font-size: 23px;
+}
+
+.nav-btn {
+  background: transparent;
+  color: #ffc914;
+  border: 2px solid #ffc914;
+  font-size: 23px;
+  transition: all 2s ease;
+}
+
+.toggler-btn {
+  border: 2px solid #ffc914;
+  padding: 5px;
+  transition: all 2s ease;
+  color: #ffc914;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  color: #ffc914;
+  transition: all 0.5s ease;
+}
+
+
+
 #back-to-top{
   background: #c9c1ac;
   border-radius: 10px;
@@ -296,6 +301,7 @@ body{
   background-repeat: no-repeat;
 }
 
+
 .height-90{
     min-height: calc(100vh - 94px);
 }
@@ -305,26 +311,28 @@ body{
     border-bottom: 6px dotted;
     animation: fromLeft;
     animation-duration: 4s;
-    animation-delay: 2s;
+    animation-delay: 1s;
     opacity: 0;
     animation-fill-mode: forwards;
 }
 
 
+  @keyframes fromBottom{
+    0%{
+      transform: translateY(-30px);
+      opacity: 1;
+    }
+    50%{
+      transform: translateY(30px);
+    }
+    100%{
+      transform: translateY(-30px);
+      opacity: 1;
+    }
 
 
-@keyframes fromLeft{
-  0%{
-    transform: translateX(-100px);
-    opacity: 0;
   }
-  50%{
-    transform: translateX(30px);
-  }
-  100%{
-    transform: translateX(0);
-    opacity: 1;
-  }
+
 
 @keyframes fromRight {
   0%{
@@ -341,17 +349,25 @@ body{
 }
 
 
-@keyframes fromBottom{
+@keyframes fromLeft{
   0%{
-    transform: translateY(-10px);
+    transform: translateX(-100px);
+    opacity: 0;
   }
   50%{
-    transform: translateY(10px);
+    transform: translateX(30px);
   }
   100%{
-    transform: translateY(-10px);
+    transform: translateX(0);
+    opacity: 1;
   }
-}
+
+
+
+
+
+
+
 
 /****menu item*****/
 

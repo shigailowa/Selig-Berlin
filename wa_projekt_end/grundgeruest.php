@@ -1,3 +1,7 @@
+<?php
+	include_once "login.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	
@@ -28,11 +32,12 @@
 	<div class="container-fluid info p-3" id="top-icons">
 		<div class="row">
 			<div class="col d-flex justify-content-between align-items-baseline flex-wrap ">
-				<div class="info-icons p-2">
+			<div class="info-icons p-2">
 
-					<a href="#" class="mr-2 secondary-color"><i class="fab fa-facebook fa-2x"></i></a><a href="#" class="mr-2 secondary-color"> <i class="fab fa-instagram fa-2x"></i></a><a href="#" class="mr-2 secondary-color"><i class="fab fa-twitter fa-2x"></i></a><a href="#" class="mr-2 secondary-color"><i class="fab fa-yelp fa-2x"></i></a> 
+					<a href="https://www.facebook.com/selig1688/" class="mr-2 secondary-color"><i class="fab fa-facebook fa-2x"></i></a><a href="https://www.instagram.com/explore/locations/613185649/selig-restaurant/" class="mr-2 secondary-color"> <i class="fab fa-instagram fa-2x"></i></a><a href="https://www.yelp.de/biz/selig-berlin
+" class="mr-2 secondary-color"><i class="fab fa-yelp fa-2x"></i></a> 
 				</div>
-				<h2 class="primary-color p-2 text-capitalize">Kaiserdamm 6, Berlin, 14057</h2>
+				<h2 class="secondary-color p-2 text-capitalize">Kaiserdamm 6, Berlin, 14057</h2>
 			</div>
 
 			<!--<a href="#"><i class="fas fa-home"></i></a>-->
@@ -49,7 +54,7 @@
 						
 						<small class="secondary-color">Selig</small>
 					</h1>
-					<a href="" class="btn food-btn main-btn text-capitalize my 4">reservieren</a>
+					<a href="pre_reservierung.php" class="btn food-btn main-btn text-capitalize my 4">reservieren</a>
 				</div>
 			</div>			
 		</div>
@@ -87,42 +92,49 @@
 
 
 
-			<!-- Menü Leiste -->
+			<!-- Menü Leiste navbar-expand-md navbar-dark bg-dark -->
+
 				<!-- Menü Leiste -->
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-		<div class="container-fluid">
-	<a class="navbar-brand secondary-color" href="#">Selig</a>
-	<button class="navbar-toogler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-		<span class="navbar-toogler-icon"></span>
+		<!--Navbar-->
+<nav class="navbar navbar-expand-lg sticky-top">
+	<h2 class="text-uppercase secondary-color">SELIG</h2>
+	<button class="navbar-toggler secondary-color" type="button" data-toggle="collapse" data-target="#myNavbar">
+		<div class="toggler-btn secondary-color">
+			<div class="bar secondary-color"></div>
+			<div class="bar secondary-color"></div>
+			<div class="bar secondary-color"></div>
+		</div>
 	</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item active"><a class="nav-link" href = "#"> Startseite </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Speisekarte </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Reservierung </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Team </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Kontakt </a></li>
-			<li><a href = "javascript:toggle('eingabeformular');"><img src="Bilder/worker.png"></a></li>
+		<div class="collapse navbar-collapse" id="myNavbar">
+		<ul class="navbar-nav mx-auto">
+			<li class="nav-item"><a class="nav-link secondary-color" href = "grundgeruest.php"> Startseite </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "speisekarte.php"> Speisekarte </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "pre_reservierung.php"> Reservierung </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "team.php"> Team </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "kontakt.php"> Kontakt </a></li>
+			<li><a href = "javascript:toggle('eingabeformular');"><img src="Bilder/login.png" id = "loginmann"></a></li>
 		</ul>
 
 
-	<div id="eingabeformular" style="display:none;">
-		
-			<div id="hinweis">Bitte Einloggen</div>
 
+<?php
+			if ($_SESSION['loginOK'] == false) {
+			?>
+		<div id="eingabeformular" style="display:none;">
+		<div class="card text-center secondary-color">
+			<div class="card-header text-uppercase">
 			<form name="einTestFormular" action="login.php" method="GET">
 			<input type="hidden" id="seite" name="seite" value="grundgeruest">
 			<!-- hier folgen die Formularelemente -->
 				<fieldset>
-					<legend>Formular</legend>
 					<table>
 						<tr>
-							<td><label for="email">E-Mail:</label></td>
-							<td><input type="text" id="email" name="E-Mail" value="Ihre E-Mail"></td>
+							<td><label for="email" class="secondary-color">E-Mail:</label></td>
+							<td><input type="text" id="email" name="E-Mail" placeholder ="Ihre E-Mail"></td>
 						</tr>
 						<tr>
 							<td><label for="passwort">Passwort:</label></td>
-							<td><input type="text" id="passwort" name="Passwort" value="Ihr Passwort"></td>
+							<td><input type="password" id="passwort" name="Passwort" placeholder ="Ihr Passwort"></td>
 						</tr>
 						<tr>
 							<td><label for="abschicken">Abschicken:</label></td>
@@ -135,6 +147,20 @@
 		</div>
 	</div>
 </div>
+		<?php
+		}
+		else {
+		?>
+		<form name="einTestFormular" action="login.php" method="GET">
+		<input type="hidden" id="seite" name="seite" value="reservierung">
+		<div id="eingabeformular" style="display:none;">
+			<input type="submit" id="abschicken" name="ausloggen" value="Ausloggen">
+		</div> </form>
+		<?php
+		}
+		?>
+	</div>
+</div>
 </nav>
 <!--end of navbar-->
 
@@ -145,27 +171,23 @@
 			<!-- menu item -->
 			<div class="col-10 mx-auto col-sm-6 col-lg-3 my-3">
 				<div class="item-container">
-					<img src="Bilder/gericht6.jpg" class="img-fluid img-thumbnail item-img" alt="menu item">
-					<a href="Bilder/gericht6.jpg">
-						<h1 class="text-uppercase text-center item-link px-3">menu item</h1>
+					<img src="Bilder/gericht6.jpg" class="img-fluid img-thumbnail item-img">
+					<a href="Bilder/gericht6.jpg" class="item-link px-3">
 					</a>
 				</div>
 			</div>
 
 			<div class="col-10 mx-auto col-sm-6 col-lg-3 my-3">
 				<div class="item-container">
-					<img src="Bilder/gericht5.jpg" class="img-fluid img-thumbnail item-img" alt="menu item">
-					<a href="Bilder/gericht5.jpg">
-						<h1 class="text-uppercase text-center item-link px-3">menu item</h1>
-					</a>
+					<img src="Bilder/gericht5.jpg" class="img-fluid img-thumbnail item-img">
+					<a href="Bilder/gericht5.jpg" class="item-link px-3"></a>
 				</div>
 			</div>
 
 			<div class="col-10 mx-auto col-sm-6 col-lg-3 my-3">
 					<div class="item-container">
-					<img src="Bilder/gericht9.jpg" class="img-fluid img-thumbnail item-img" alt="menu item">
-					<a href="Bilder/gericht9.jpg">
-						<h1 class="text-uppercase text-center item-link px-3">menu item</h1>
+					<img src="Bilder/gericht9.jpg" class="img-fluid img-thumbnail item-img">
+					<a href="Bilder/gericht9.jpg" class="item-link px-3">
 					</a>
 				</div>
 			</div>
@@ -173,8 +195,8 @@
 			<div class="col-10 mx-auto col-sm-6 col-lg-3 my-3">
 						<div class="item-container">
 					<img src="Bilder/gericht4.jpg" class="img-fluid img-thumbnail item-img" alt="menu item">
-					<a href="Bilder/gericht4.jpg">
-						<h1 class="text-uppercase text-center item-link px-3">menu item</h1>
+					<a href="Bilder/gericht4.jpg" class="item-link px-3">
+					
 					</a>
 				</div>
 			</div>
@@ -182,18 +204,15 @@
 			<div class="col-10 mx-auto col-sm-6 col-lg-3 my-3">
 			<div class="item-container">
 					<img src="Bilder/gericht8.jpg" class="img-fluid img-thumbnail item-img" alt="menu item">
-					<a href="Bilder/gericht8.jpg">
-						<h1 class="text-uppercase text-center item-link px-3">menu item</h1>
-					</a>
+					<a href="Bilder/gericht8.jpg" class="item-link px-3">					</a>
 				</div>
 			</div>
 
 
 			<div class="col-10 mx-auto col-sm-6 col-lg-3 my-3">
 						<div class="item-container">
-					<img src="Bilder/gericht11.jpg" class="img-fluid img-thumbnail item-img" alt="menu item">
-					<a href="Bilder/gericht11.jpg">
-						<h1 class="text-uppercase text-center item-link px-3">menu item</h1>
+					<img src="Bilder/gericht11.jpg" class="img-fluid img-thumbnail item-img">
+					<a href="Bilder/gericht11.jpg" class="item-link px-3">
 					</a>
 				</div>
 			</div>
@@ -206,79 +225,12 @@
 
 
 <!-- about -->
-<section id="about" class="py-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 my-4">
-				<h1 class="text-uppercase display-3">about us</h1>
-				<h2 class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sit voluptatem, pariatur vel error praesentium!</h2>
-				<a href="" class="btn main-btn my-4 text-capitalize">learn more</a>
-			</div>
-			<div class="col-md-6 about-picture my-4 d-none d-lg-block">
-				<img src="Bilder/gericht8.jpg" alt="menu" class="img-1 img-thumbnail about-image">
-			</div>
-		</div>
-	</div>
+<section id="about" class="text-center">
+				<h1 class="text-white">Das ist kein Restaurant, sondern ein Ort</h1>
+				<a href="team.php" class="btn main-btn my-4 text-capitalize">Erfahre mehr</a>
 </section>
 <!--end of about -->
 <!-- reviews -->
-<section id="reviews" class="py-5">
-	<div id="slider" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
-			<!-- carousel item -->
-			<div class="carousel-item active">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
-
-						<!-- image -->
-							<div class="align-self-center ml-3">
-								<img src="Bilder/customer1.jpg" alt="" class="rounded-circle review-img">
-							</div>
-						<!-- text -->
-							<div class="review-text px-5">
-								<h2 class="text-capitalize mb-3 primary-color">customer name</h2>
-								<p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, minus.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--end of carousel item-->
-					<!-- carousel item -->
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
-
-						<!-- image -->
-							<div class="align-self-center ml-3">
-								<img src="Bilder/customer1.jpg" alt="" class="rounded-circle review-img">
-							</div>
-						<!-- text -->
-							<div class="review-text px-5">
-								<h2 class="text-capitalize mb-3 primary-color">customer name</h2>
-								<p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, minus.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--end of carousel item-->
-		</div>
-
-
-		<!-- carousel controls-->
-		<a href="#slider" class="carousel-control-prev" role="button" data-slide="prev">
-			<span class="carousel-control-prev"></span>
-		</a>
-		<a href="#slider" class="carousel-control-next" role="button" data-slide="next">
-			<span class="carousel-control-next"></span>
-		</a>
-	</div>
-
-</section>
-
 
 
 
@@ -289,7 +241,7 @@
 			<div class="col d-flex justify-content-between align-items-baseline flex-wrap ">
 				<div class="info-icons p-2">
 
-					<a href="#" class="mr-2 secondary-color"><i class="fab fa-facebook fa-2x"></i></a><a href="#" class="mr-2 secondary-color"> <i class="fab fa-instagram fa-2x"></i></a><a href="#" class="mr-2 secondary-color"><i class="fab fa-twitter fa-2x"></i></a><a href="#" class="mr-2 secondary-color"><i class="fab fa-yelp fa-2x"></i></a> 
+					<a href="#" class="mr-2 secondary-color"><i class="fab fa-facebook fa-2x"></i></a><a href="#" class="mr-2 secondary-color"> <i class="fab fa-instagram fa-2x"></i></a><a href="#" class="mr-2 secondary-color"><i class="fab fa-yelp fa-2x"></i></a> 
 				</div>
 				<h2 class="primary-color p-2 text-uppercase">&copy;copyright 2018</h2>
 			</div>

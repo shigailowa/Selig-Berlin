@@ -62,7 +62,55 @@ body{
   
 }
 
+.navbar{
+  background: #6b0504;
+  padding: 20px 20px;
+  transition: all 1s ease;
 
+}
+
+.navbar-background {
+  padding: 5px 20px;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  transition: all 1s ease;
+}
+
+.navbar-brand:hover {
+  color: #242424;
+}
+
+.nav-link {
+  color: #ffc914;
+  text-decoration: none;
+  transition: all 2s ease;
+  font-size: 23px;
+}
+
+.nav-btn {
+  background: transparent;
+  color: #ffc914;
+  border: 2px solid #ffc914;
+  font-size: 23px;
+  transition: all 2s ease;
+}
+
+.toggler-btn {
+  border: 2px solid #ffc914;
+  padding: 5px;
+  transition: all 2s ease;
+  color: #ffc914;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  color: #ffc914;
+  transition: all 0.5s ease;
+}
 
 .item-container{
   position: relative;
@@ -226,23 +274,7 @@ body{
   right: 10px;
 }
 
-.navbar{
-  background: #080f0f
-}
 
-.navbar-background {
-  padding: 5px 20px;
-}
-
-.navbar-brand {
-  color:#ffc914;
-  font-size: 30px;
-  transition: all 1s ease;
-}
-
-.navbar-brand:hover {
-  color: #242424;
-}
 #back-to-top{
   background: #c9c1ac;
   border-radius: 10px;

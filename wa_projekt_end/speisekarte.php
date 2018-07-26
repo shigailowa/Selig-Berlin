@@ -1,3 +1,7 @@
+<?php
+	include_once "login.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	
@@ -6,10 +10,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet"  href="css/style2.css">
+		<link rel="stylesheet"  href="css/style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 		<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 		<meta name="author" content="Tatjana Shigailow, Mauricio Hess">
 		<meta name="description" content="Selig Berlin Restaurant">
@@ -45,40 +49,43 @@
 
 
 			<!-- Menü Leiste -->
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-		<div class="container-fluid">
-	<a class="navbar-brand secondary-color" href="#">Selig</a>
-	<button class="navbar-toogler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-		<span class="navbar-toogler-icon"></span>
+	<nav class="navbar navbar-expand-lg sticky-top">
+	<h2 class="text-uppercase secondary-color">SELIG</h2>
+	<button class="navbar-toggler secondary-color" type="button" data-toggle="collapse" data-target="#myNavbar">
+		<div class="toggler-btn secondary-color">
+			<div class="bar secondary-color"></div>
+			<div class="bar secondary-color"></div>
+			<div class="bar secondary-color"></div>
+		</div>
 	</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item active"><a class="nav-link" href = "#"> Startseite </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Speisekarte </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Reservierung </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Team </a> </li>
-			<li class="nav-item"><a class="nav-link" href = "#"> Kontakt </a></li>
-			<li><a href = "javascript:toggle('eingabeformular');"><img src="Bilder/worker.png"></a></li>
+		<div class="collapse navbar-collapse" id="myNavbar">
+		<ul class="navbar-nav mx-auto">
+			<li class="nav-item"><a class="nav-link secondary-color" href = "grundgeruest.php"> Startseite </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "speisekarte.php"> Speisekarte </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "pre_reservierung.php"> Reservierung </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "team.php"> Team </a> </li>
+			<li class="nav-item"><a class="nav-link secondary-color" href = "kontakt.php"> Kontakt </a></li>
+			<li><a href = "javascript:toggle('eingabeformular');"><img src="Bilder/login.png" id = "loginmann"></a></li>
 		</ul>
 
-
-	<div id="eingabeformular" style="display:none;">
-		
-			<div id="hinweis">Bitte Einloggen</div>
-
+<?php
+			if ($_SESSION['loginOK'] == false) {
+			?>
+		<div id="eingabeformular" style="display:none;">
+		<div class="card text-center secondary-color">
+			<div class="card-header text-uppercase">
 			<form name="einTestFormular" action="login.php" method="GET">
 			<input type="hidden" id="seite" name="seite" value="grundgeruest">
 			<!-- hier folgen die Formularelemente -->
 				<fieldset>
-					<legend>Formular</legend>
 					<table>
 						<tr>
-							<td><label for="email">E-Mail:</label></td>
-							<td><input type="text" id="email" name="E-Mail" value="Ihre E-Mail"></td>
+							<td><label for="email" class="secondary-color">E-Mail:</label></td>
+							<td><input type="text" id="email" name="E-Mail" placeholder ="Ihre E-Mail"></td>
 						</tr>
 						<tr>
 							<td><label for="passwort">Passwort:</label></td>
-							<td><input type="text" id="passwort" name="Passwort" value="Ihr Passwort"></td>
+							<td><input type="password" id="passwort" name="Passwort" placeholder ="Ihr Passwort"></td>
 						</tr>
 						<tr>
 							<td><label for="abschicken">Abschicken:</label></td>
@@ -91,6 +98,20 @@
 		</div>
 	</div>
 </div>
+		<?php
+		}
+		else {
+		?>
+		<form name="einTestFormular" action="login.php" method="GET">
+		<input type="hidden" id="seite" name="seite" value="reservierung">
+		<div id="eingabeformular" style="display:none;">
+			<input type="submit" id="abschicken" name="ausloggen" value="Ausloggen">
+		</div> </form>
+		<?php
+		}
+		?>
+	</div>
+</div>
 </nav>
 
 	<section id="menu" class="py-5 my-5">
@@ -100,27 +121,28 @@
 				<!--title -->
 				<div class="row">
 				<div class="col">
-				<h1 class="secondary-color text-uppercase">Vorspeise</h1>	
-				</div>
+				<h1 class="secondary-color text-uppercase">Huhn</h1>	
+			
+			<!-- single item-->
+			<div class="single-item d-flex justify-content-left my-3 p-3">
+				<div class="single-item-text"></div>
+				<div class="single-item-price flex-grow-1 align-self-end">
+					<h2 class="text-uppercase text-white">Bo Bo</h2>
+					<h4 class="text-white">Hähnchen mit Kastanien in Feuerpfanne</h4>
+					</div>
 
 			</div>
-			<!-- single item-->
-			<div class="single-item d-flex justify-content-between my-3 p-3">
-				<div class="single-item-text"></div>
-				<div class="single-item-price align-self-end">
-					<h2 class="text-uppercase text-white">soup</h2>
-					<h4 class="text-white">lorem5 zffsdsftzdtdrdtrtz</h4>
 
 				</div>
 				<div class="single-item-price align-self-end">
-					<h1 class="text-uppercase text-white">10€</h1>
+					<h1 class="text-uppercase text-white">10,60€</h1>
 				</div>
 
 
 			</div>
 
 		<!-- end of single item -->
-			<div class="single-item d-flex justify-content-between my-3 p-3 special">
+			<!--<div class="single-item d-flex justify-content-between my-3 p-3">
 				<div class="single-item-text"></div>
 				<div class="single-item-price align-self-end">
 					<h2 class="text-uppercase text-white">soup</h2>
@@ -130,49 +152,47 @@
 				<div class="single-item-price align-self-end">
 					<h1 class="text-uppercase text-white">10€</h1>
 				</div>
-				<h3 class="special-text text-capitalize">Empfehlung Chefkoch</h3>
 
-
-			</div>
+			</div>-->
 		
 
 
 				<!--title -->
 				<div class="row">
 				<div class="col">
-				<h1 class="secondary-color text-uppercase">Vorspeise</h1>	
+				<h1 class="secondary-color text-uppercase">Schwein</h1>	
+			
+			<!-- single item-->
+			<div class="single-item d-flex justify-content-left flex-wrap my-3 p-3">
+				<div class="single-item-text"></div>
+				<div class="single-item-price flex-grow-1 align-self-end">
+					<h2 class="text-uppercase text-white">Chang-Sha</h2>
+					<h4 class="text-white">Schweinebauch mit grünen Paprika</h4>
+
 				</div>
+				<div class="single-item-price align-self-end">
+					<h1 class="text-uppercase text-white">9,60€</h1>
+				</div>
+
+					</div>
 
 			</div>
-			<!-- single item-->
-			<div class="single-item d-flex justify-content-between my-3 p-3">
-				<div class="single-item-text"></div>
-				<div class="single-item-price align-self-end">
-					<h2 class="text-uppercase text-white">huhn</h2>
-					<h4 class="text-white">lorem5 hihihihig ihoh fzfgi</h4>
-
-				</div>
-				<div class="single-item-price align-self-end">
-					<h1 class="text-uppercase text-white">10€</h1>
-				</div>
 
 
 			</div>
 
 		<!-- end of single item -->
 
-			<div class="single-item d-flex justify-content-between my-3 p-3 special">
+			<div class="single-item d-flex justify-content-left my-3 p-3">
 				<div class="single-item-text"></div>
-				<div class="single-item-price align-self-end">
-					<h2 class="text-uppercase text-white">huhn</h2>
-					<h4 class="text-white">lorem5 hhggugujujggh gugu</h4>
+				<div class="single-item-price flex-grow-1 align-self-end">
+					<h2 class="text-uppercase text-white">Lei Lei</h2>
+					<h4 class="text-white text-left">Schweinefüße</h4>
 
 				</div>
 				<div class="single-item-price align-self-end">
-					<h1 class="text-uppercase text-white">10€</h1>
+					<h1 class="text-uppercase content-right text-white">9,60€</h1>
 				</div>
-				<h3 class="special-text text-capitalize">Empfehlung Chefkoch</h3>
-
 
 			</div>
 			
@@ -181,27 +201,27 @@
 				<!--title -->
 				<div class="row">
 				<div class="col">
-				<h1 class="secondary-color text-uppercase">Vorspeise</h1>	
+				<h1 class="secondary-color text-uppercase">Fisch</h1>	
 				</div>
 
 			</div>
 			<!-- single item-->
-			<div class="single-item d-flex justify-content-between my-3 p-3">
+			<div class="single-item d-flex justify-content-left my-3 p-3">
 				<div class="single-item-text"></div>
-				<div class="single-item-price align-self-end">
-					<h2 class="text-uppercase text-white">soup</h2>
-					<h4 class="text-white">lorem5 ugsaafsfdaduigsaugf</h4>
+				<div class="single-item-price flex-grow-1 align-self-end">
+					<h2 class="text-uppercase text-white">Rote Laterne</h2>
+					<h4 class="text-white">Karpfen in einer Sichuan-Pfeffer-Chili Suppe</h4>
 
 				</div>
 				<div class="single-item-price align-self-end">
-					<h1 class="text-uppercase text-white">10€</h1>
+					<h1 class="text-uppercase text-white">23,60€</h1>
 				</div>
 
 
 			</div>
 
 		<!-- end of single item -->
-			<div class="single-item d-flex justify-content-between my-3 p-3 special">
+		<!--	<div class="single-item d-flex justify-content-between my-3 p-3">
 				<div class="single-item-text"></div>
 				<div class="single-item-price align-self-end">
 					<h2 class="text-uppercase text-white">soup</h2>
@@ -211,36 +231,34 @@
 				<div class="single-item-price align-self-end">
 					<h1 class="text-uppercase text-white">10€</h1>
 				</div>
-				<h3 class="special-text text-capitalize">Empfehlung Chefkoch</h3>
 
-
-			</div>
+			</div>-->
 
 			<!--end of title -->
 
 				<div class="row">
 				<div class="col">
-				<h1 class="secondary-color text-uppercase">Vorspeise</h1>	
+				<h1 class="secondary-color text-uppercase">Dessert</h1>	
 				</div>
 
 			</div>
 			<!-- single item-->
-			<div class="single-item d-flex justify-content-between my-3 p-3">
+			<div class="single-item d-flex justify-content-left my-3 p-3">
 				<div class="single-item-text"></div>
-				<div class="single-item-price align-self-end">
-					<h2 class="text-uppercase text-white">soup</h2>
-					<h4 class="text-white">lorem5 gzufufcztdzifadf</h4>
+				<div class="single-item-price flex-grow-1 align-self-end">
+					<h2 class="text-uppercase text-white">Chen Chen</h2>
+					<h4 class="text-white text-left">Kartoffel Kuchen Gebratene</h4>
 
 				</div>
 				<div class="single-item-price align-self-end">
-					<h1 class="text-uppercase text-white">10€</h1>
+					<h1 class="text-uppercase content-right text-white">3,60€</h1>
 				</div>
 
 
 			</div>
 
 		<!-- end of single item -->
-			<div class="single-item d-flex justify-content-between my-3 p-3 special">
+		<!--	<div class="single-item d-flex justify-content-between my-3 p-3">
 				<div class="single-item-text"></div>
 				<div class="single-item-price align-self-end">
 					<h2 class="text-uppercase text-white">soup</h2>
@@ -250,10 +268,8 @@
 				<div class="single-item-price align-self-end">
 					<h1 class="text-uppercase text-white">10€</h1>
 				</div>
-				<h3 class="special-text text-capitalize">Empfehlung Chefkoch</h3>
 
-
-			</div>
+			</div>-->
 
 			<!--end of title -->
 
@@ -269,14 +285,14 @@
 			<div class="col d-flex justify-content-between align-items-baseline flex-wrap ">
 				<div class="info-icons p-2">
 
-					<a href="#" class="mr-2 secondary-color"><i class="fab fa-facebook fa-2x"></i></a><a href="#" class="mr-2 secondary-color"> <i class="fab fa-instagram fa-2x"></i></a><a href="#" class="mr-2 secondary-color"><i class="fab fa-twitter fa-2x"></i></a><a href="#" class="mr-2 secondary-color"><i class="fab fa-yelp fa-2x"></i></a> 
+					<a href="https://www.facebook.com/selig1688/" class="mr-2 secondary-color"><i class="fab fa-facebook fa-2x"></i></a><a href="https://www.instagram.com/explore/locations/613185649/selig-restaurant/" class="mr-2 secondary-color"> <i class="fab fa-instagram fa-2x"></i></a><a href="https://www.yelp.de/biz/selig-berlin
+" class="mr-2 secondary-color"><i class="fab fa-yelp fa-2x"></i></a> 
 				</div>
 				<h2 class="primary-color p-2 text-uppercase">&copy;copyright 2018</h2>
 			</div>
 
 			<!--<a href="#"><i class="fas fa-home"></i></a>-->
 		</div>
-		
 	</div>
 
 

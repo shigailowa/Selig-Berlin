@@ -36,19 +36,16 @@
 				$query = "SELECT * FROM Kunde
 				WHERE email = '".$mysqli->real_escape_string($username)."' AND passwort = MD5('".$mysqli->real_escape_string($password)."')";
 
-				printf("<b>Jetzt wird folgendes ausgeführt:</b> <i>%s</i><br>", $query);
 
 				// SELECT-Anfrage schicken
 				if ($result = $mysqli->query($query)) {
 					// Zeilenanzahl ausgeben
-					printf("Das ergab %d Zeilen.<br/>", $result->num_rows);
 
 					if($result->num_rows > 0)
 					{
 						// Es gibt einen Datensatz, also Login korrekt
 						$_SESSION['loginOK'] = true;
 						$_SESSION['loginUsername'] = $username;
-						echo "Hallo ".$_SESSION['loginUsername'].", Du bist eingeloggt!<br>";
 					}
 
 					$result->close();
@@ -63,7 +60,7 @@
 				$_SESSION['loginOK'] = false;
 			}
 
-		if($_REQUEST["seite"]) {
+		if(isset($_REQUEST["seite"])) {
 			include $_REQUEST["seite"].".php";
 		}
 

@@ -1,11 +1,14 @@
 <?php
-	include_once "login.php";
+include_once "login.php";
 ?>
 
 <!DOCTYPE html>
+
+
+
 <html>
-	
-	<head>
+
+<head>
 		<title>Selig Kontakt</title>
 		<meta name="author" content="Tatjana Shigailow, Mauricio Hess">
 		<meta name="description" content="Selig Berlin Restaurant">
@@ -26,8 +29,6 @@
 	
 	<body>
 
-
-		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="magnific-popup/jquery.magnific-popup.js"></script>
 		<script src="js/script.js"></script>
@@ -50,8 +51,7 @@
 			
 		</script>
 
-
-		<!-- Menü Leiste -->
+				<!-- Menü Leiste -->
 	<!-- Menü Leiste -->
 <nav class="navbar navbar-expand-lg sticky-top">
 	<h2 class="text-uppercase secondary-color">SELIG</h2>
@@ -118,21 +118,54 @@
 	</div>
 </div>
 </nav>
-		<div class="container my-4 p-4">
-			<div class="align-self-center">
-				<div class="embed-responsive embed-responsive-21by9 height-60">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.2413564860344!2d13.290440850990175!3d52.51097104455228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a850d78d3e294f%3A0x67ba8b965f17e0d9!2sKaiserdamm+6%2C+14057+Berlin!5e0!3m2!1sde!2sde!4v1532295546999" width="100%"  frameborder="0" style="border:0" allowfullscreen ></iframe>
-				
-	</div>
-	</div>
-</div>
+
+<?php
+
+	if(isset($_REQUEST["tag"]) && isset($_REQUEST["zeit"]) && isset($_REQUEST["tisch"])) {
 
 
+		$mysqli = new mysqli("pc18.beuth-hochschule.de", "sose18_web_projekt_10", "projekt", "sose18_web_projekt_10");
+		// Verbindung prüfen
+		if (mysqli_connect_errno()) {
+			printf("Connect failed: %s<br/>", mysqli_connect_error());
+			exit();
+		}
 
-<!-- end of contact section-->
+		// **************************
+		// INSERT-Anfrage formulieren
+		// **************************
+		$tag = $_REQUEST["tag"];
+		$zeit = $_REQUEST["zeit"];
+		$tisch = $_REQUEST["tisch"];
+		$username = $_SESSION["loginUsername"];
+
+		$query1 = "INSERT INTO Reservierung(datum, kunde_email)
+					VALUES(CONCAT(SUBSTR('".$mysqli->real_escape_string($tag)."',7,4),
+					'-', SUBSTR('".$mysqli->real_escape_string($tag)."',1,2), '-',
+					SUBSTR('".$mysqli->real_escape_string($tag)."',4,2), ' ',
+					'".$mysqli->real_escape_string($zeit)."', ':00'), '".$mysqli->real_escape_string($username)."')";
+	
+		$query2 = "INSERT INTO fuer(reservierung_id_reservierung, tisch_id_tisch)
+					VALUES(LAST_INSERT_ID(),'".$mysqli->real_escape_string($tisch)."')";
+
+		// INSERT-Anfrage schicken
+		if ($result = $mysqli->query($query1)) {
+				printf("");
+		}
+		if ($result = $mysqli->query($query2)) {
+				printf("");
+		}
+
+	}
+
+
+?>
+
+<div class = "text-center secondary-color font-weight-bold py-5"> <h1>Tisch erfolgreich reserviert!</h1></div>
+<div class = "container justify-content-center p-2"> <img src = "Bilder/selig_tisch.jpg"  height="480px" width="720px" class="rounded mx-auto d-block" > </div>
 
 <!-- social Icons -->
-	<div class="container-fluid info p-3" >
+	<div class="container-fluid fixed-bottom info p-3" >
 		<div class="row">
 			<div class="col d-flex justify-content-between align-items-baseline flex-wrap ">
 				<div class="info-icons p-2">
@@ -148,7 +181,6 @@
 	</div>
 
 
-
-	</body>
+</body>
 
 </html>
